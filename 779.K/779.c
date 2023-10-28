@@ -1,6 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*void	print_double_array(int **array, int num_row, int num_cols)
+{
+	for(int i = 0; i < num_row; i++)
+	{
+		for(int j = 0; j < num_cols; j++)
+		{
+			printf("%d ", array[i][j]);
+		}
+		printf("\n");
+	}
+}*/
+
 int	kthGrammar(int n, int k)
 {
 	int	y;
@@ -11,45 +23,36 @@ int	kthGrammar(int n, int k)
 
 	y = 0;
 	x = 0;
+	len = 1;
 	double_tab = (int **)malloc(n * sizeof(int *));
 	if (!double_tab)
 		return (0);
-	for (y = 0; y < n; y++;)
+	double_tab[y] = (int *)malloc(len * sizeof(int));
+	if (!double_tab[y])
+		return (0);
+	len = 2;
+	for(y = 1; y < n; y++)
 	{
-		double_tab[y] = (int *)malloc((1 << y) * sizeof(int))
+		double_tab[y] = (int *)malloc(len * sizeof(int));
 		if (!double_tab[y])
 			return (0);
-	}
-	while (y < n)
-	{
-		int	*uni_tab;
-		int	i;
-
-		while (x < x * 2)
+		for(int i = 0; i < len; i += 2)
 		{
-			uni_tab = (int *)malloc((x * 2) * sizeof(int));
-			if (!uni_tab)
-				return (0);
-			if (double_tab[y][x] == 0)
+			if (double_tab[y - 1][i] == 0)
 			{
-				uni_tab[i] = 0;
-				uni_tab[i + 1] = 1;
-				x++;
-				i += 2;
+				double_tab[y][i] = 0;
+				double_tab[y][i + 1] = 1;
 			}
-			else if (double_tab[y][x] == 1)
+			else if (double_tab[y - 1][i] == 1)
 			{
-				uni_tab[i] = 1;
-				uni_tab[i + 1] = 0;
-				x++;
-				i += 2;
+				double_tab[y][i] = 1;
+				double_tab[y][i + 1] = 	0;
 			}
 		}
-
-			double_tab[y + 1][x] = uni_tab[i];
-			y++;
+		len *= 2;
 	}
-	res = double_tab[n][k];
+	//print_double_array(double_tab, n, y);
+	res = double_tab[n - 1][k - 1];
 	for (int i = 0; i < n; i++) 
    		 free(double_tab[i]);
 	free(double_tab);
@@ -62,7 +65,7 @@ int	main()
 	int	k;
 
 	n = 5;
-	k = 2 * n - 1;
+	k = 2;
 	printf("The result is: %d", kthGrammar(n, k));
 	return (0);
 }
