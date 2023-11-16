@@ -9,7 +9,7 @@ typedef struct node
     struct node *next; 
 } node;
 
-// Structure de table de hachage
+// Structure de la table de hachage
 typedef struct hash_table
 {
     int     size;
@@ -38,7 +38,6 @@ void    insert(hash_table *table, int key, int value)
     int     index;
 
     index = hash(key, table->size);
-    printf("%d",index);
     node *new_node = (node *)malloc(sizeof(node));
     new_node->key = key;
     new_node->value = value;
