@@ -15,6 +15,7 @@ To solve this problem, a brute-force approach is employed, involving iterating t
 // Example Input/Output
 const result = two_sums([1, 2, 3, 4], 3);
 console.log(result); // Expected Output: [0, 2]
+```
 
 # Two Sums
 
