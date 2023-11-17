@@ -1,0 +1,7 @@
+# Ignore Node.js related files and folders
+node_modules/
+package.json
+package-lock.json
+
+# Ignore TypeScript configuration file
+tsconfig.json
