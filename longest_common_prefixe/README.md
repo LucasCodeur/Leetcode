@@ -11,7 +11,6 @@ Si aucun préfixe commun n'est trouvé, retournez une chaîne vide "".
 ## Approche et Algorithme
 Algorithme itératif : L'algorithme utilise une boucle for pour itérer à travers les caractères des chaînes de gauche à droite.
 Algorithme de recherche : Il recherche le préfixe commun en comparant les caractères des chaînes à la même position.
-Approche :
 
 Initialisation : Vérifie si le tableau est vide et initialise des variables.
 Itération : Utilise une boucle pour itérer sur les caractères des chaînes.
@@ -45,7 +44,6 @@ Develop a function to find the longest common prefix string among an array of st
 ## Approach and Algorithm
 Iterative algorithm: The algorithm uses a for loop to iterate through the characters of the strings from left to right.
 Search algorithm: It searches for the common prefix by comparing the characters of the strings at the same position.
-Approach:
 
 Initialization: Checks if the array is empty and initializes variables.
 Iteration: Uses a loop to iterate over the characters of the strings.
